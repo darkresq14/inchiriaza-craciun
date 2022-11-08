@@ -1,6 +1,8 @@
 export interface Rental {
   id?: string;
   name: string;
+  image: string;
+  type: string;
 }
 
 export interface Mos extends Rental {

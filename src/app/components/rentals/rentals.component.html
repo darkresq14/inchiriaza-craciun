@@ -1,0 +1,27 @@
+<h1 class="mat-h1 text-yellow-500 text-center">Moș Crăciun de închiriat</h1>
+<div class="flex flex-wrap gap-4 justify-center">
+  <ng-container *ngFor="let rental of rentals$ | async">
+    <mat-card class="w-96 bg-red-200" *ngIf="rental.type === 'mos'">
+      <mat-card-header>
+        <div
+          mat-card-avatar
+          class="bg-cover"
+          style="
+            background-image: url('../../../assets/images/mos/santa-claus.png');
+          "
+        ></div>
+        <mat-card-title>{{ rental.name }}</mat-card-title>
+        <mat-card-subtitle>{{ rental.type | titlecase }}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        class="h-96 w-full object-cover"
+        mat-card-image
+        src="{{ getImageUrl(rental) }}"
+        alt="Mos Craciun"
+      />
+      <mat-card-actions>
+        <button mat-button (click)="onRentClicked(rental)">ÎNCHIRIAZĂ</button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+</div>

@@ -1,0 +1,9 @@
+.example-img {
+  max-height: 400px;
+  background-size: cover;
+}
+
+::ng-deep .mat-card-image {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}

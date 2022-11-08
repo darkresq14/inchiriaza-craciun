@@ -9,7 +9,7 @@ import { Rental } from '../shared/rental.model';
   providedIn: 'root',
 })
 export class RentalFirestoreService {
-  private dbPath = '/retals';
+  private dbPath = '/rentals';
 
   rentalsRef: AngularFirestoreCollection<Rental>;
 

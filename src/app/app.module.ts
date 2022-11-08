@@ -13,14 +13,26 @@ import { MaterialModule } from './material.module';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AboutComponent } from './components/about/about.component';
+import { RentalsComponent } from './components/rentals/rentals.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, PageNotFoundComponent, AboutComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    PageNotFoundComponent,
+    AboutComponent,
+    RentalsComponent,
+    ContactComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
