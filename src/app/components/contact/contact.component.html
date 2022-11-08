@@ -1,1 +1,34 @@
-<p>contact works!</p>
+<h1 class="mat-h1 text-yellow-500 text-center">
+  Contactează-ne și închiriază chiar azi!
+</h1>
+
+<div class="flex justify-center">
+  <form
+    class="flex flex-col gap-4 justify-center bg-white w-96 p-4 rounded-lg"
+    [formGroup]="contactForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-form-field appearance="standard">
+      <mat-label>Nume</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Moș de închiriat</mat-label>
+      <mat-select formControlName="rental">
+        <mat-option value="">Alege un moș</mat-option>
+        <mat-option *ngFor="let rental of rentals$ | async" [value]="rental.id"
+          >{{ rental.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Mesaj</mat-label>
+      <textarea matInput formControlName="message"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Trimite</button>
+  </form>
+</div>

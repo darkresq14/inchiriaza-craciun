@@ -10,6 +10,7 @@ import { Rental } from '../shared/rental.model';
 })
 export class RentalFirestoreService {
   private dbPath = '/rentals';
+  private selectedRental?: Rental;
 
   rentalsRef: AngularFirestoreCollection<Rental>;
 
@@ -31,5 +32,13 @@ export class RentalFirestoreService {
 
   delete(id: string): Promise<void> {
     return this.rentalsRef.doc(id).delete();
+  }
+
+  getRental() {
+    return this.selectedRental;
+  }
+
+  setRental(rental: Rental) {
+    this.selectedRental = rental;
   }
 }

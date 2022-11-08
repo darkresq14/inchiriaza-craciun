@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { RentalFirestoreService } from 'src/app/services/rental-firestore.service';
 import { Rental } from 'src/app/shared/rental.model';
@@ -14,10 +14,9 @@ export class RentalsComponent implements OnInit {
 
   constructor(
     private rentalFsS: RentalFirestoreService,
-    private db: AngularFirestore
+    private router: Router
   ) {
-    this.rentals$ = rentalFsS.getAll().valueChanges();
-    this.rentals$.subscribe((data) => console.log(data));
+    this.rentals$ = rentalFsS.getAll().valueChanges({ idField: 'id' });
   }
 
   ngOnInit(): void {}
@@ -26,5 +25,8 @@ export class RentalsComponent implements OnInit {
     return `../../../assets/images/${rental.type}/${rental.image}.jpg`;
   }
 
-  onRentClicked(rental: Rental) {}
+  onRentClicked(rental: Rental) {
+    this.rentalFsS.setRental(rental);
+    this.router.navigate(['/contact']);
+  }
 }

@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'acasa', component: HomeComponent },
   { path: 'despre', component: AboutComponent },
   { path: 'echipa', component: RentalsComponent },
-  { path: 'contact', component: ContactComponent, data: { rental: '' } },
+  { path: 'contact', component: ContactComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
