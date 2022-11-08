@@ -1,0 +1,30 @@
+<mat-toolbar class="bg-red-700 text-white">
+  <mat-toolbar-row>
+    <div class="w-full flex justify-between">
+      <a class="font-medium" [routerLink]="'/acasa'">Inchiriază Crăciun</a>
+      <a
+        class="text-green-500"
+        href="https://santatracker.google.com/intl/ro/"
+        mat-button
+      >
+        Unde este Moș Crăciun
+      </a>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <div class="w-full flex justify-between">
+      <a mat-button [routerLink]="'/acasa'" routerLinkActive="active">
+        Acasă
+      </a>
+      <a mat-button [routerLink]="'/despre'" routerLinkActive="active">
+        Despre noi
+      </a>
+      <a mat-button [routerLink]="'/echipa'" routerLinkActive="active">
+        Echipa Moș Crăciun
+      </a>
+      <a mat-button [routerLink]="'/contact'" routerLinkActive="active">
+        Contactează-ne
+      </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

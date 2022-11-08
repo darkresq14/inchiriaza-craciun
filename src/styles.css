@@ -13,3 +13,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.full-height {
+  min-height: calc(100vh - 128px);
+}
