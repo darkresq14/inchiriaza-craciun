@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "inchiriaza-craciun": {
+      "hosting": {
+        "inchiriaza-craciun": [
+          "inchiriaza-craciun"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "inchiriaza-craciun"
+  }
+}
