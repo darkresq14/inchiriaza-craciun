@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormGroupDirective,
+  NgForm,
+  Validators,
+} from '@angular/forms';
 import { Rental } from 'src/app/shared/rental.model';
 import { RentalFirestoreService } from 'src/app/services/rental-firestore.service';
 import { Observable } from 'rxjs';
@@ -20,7 +26,8 @@ export class ContactComponent implements OnInit {
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     rental: new FormControl('', [Validators.required]),
-    message: new FormControl('', [Validators.required]),
+    date: new FormControl('', [Validators.required]),
+    message: new FormControl(''),
   });
 
   constructor(
@@ -37,15 +44,16 @@ export class ContactComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  onSubmit(form: FormGroupDirective) {
     if (this.contactForm.valid) {
       this.contactFsS.create({
         name: this.contactForm.value.name,
         email: this.contactForm.value.email,
         rental: this.contactForm.value.rental,
+        date: this.contactForm.value.date,
         message: this.contactForm.value.message,
       } as Contact);
-      this.contactForm.reset();
+      form.resetForm();
     }
   }
 }

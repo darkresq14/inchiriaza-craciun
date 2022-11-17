@@ -6,7 +6,8 @@
   <form
     class="flex flex-col gap-4 justify-center bg-white w-96 p-4 rounded-lg"
     [formGroup]="contactForm"
-    (ngSubmit)="onSubmit()"
+    #form="ngForm"
+    (ngSubmit)="onSubmit(form)"
   >
     <mat-form-field appearance="standard">
       <mat-label>Nume</mat-label>
@@ -26,7 +27,23 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field>
+      <mat-label>Data</mat-label>
+      <input
+        matInput
+        formControlName="date"
+        [matDatepicker]="datepicker"
+        (click)="datepicker.open()"
+        required
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="datepicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #datepicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
       <mat-label>Mesaj</mat-label>
+      <mat-hint>(optional)</mat-hint>
       <textarea matInput formControlName="message"></textarea>
     </mat-form-field>
     <button mat-raised-button color="primary" type="submit">Trimite</button>

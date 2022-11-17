@@ -3,5 +3,6 @@ export interface Contact {
   name: string;
   email: string;
   rental: string;
-  message: string;
+  date: string;
+  message?: string;
 }
